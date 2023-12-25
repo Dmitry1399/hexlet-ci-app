@@ -1,0 +1,13 @@
+name: hello-world
+on: push
+jobs:
+  my-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      -  run: make setup
+      - name: my-yest
+        run: make test
+      - name: my-lint
+        run: make lint  
