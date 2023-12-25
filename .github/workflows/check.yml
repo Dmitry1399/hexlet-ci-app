@@ -1,21 +1,24 @@
 name: project CI
+ 
 on: push
+ 
 jobs:
-  my-check:
+  build:
+ 
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
+ 
+      - uses: snyk/actions/node@v0.3.0
+        env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+ 
       - uses: actions/setup-node@v3
-        with:
-            node-version: '18.x'
+        with: 
+            node-vers: ????
             cache: 'npm'
-      -  run: make setup
-      - name: my-yest
-        run: make test
-      - name: my-lint
-        run: make lint  
+ 
+      - run: make setup
+      - run: make test
+      - run: make lint
